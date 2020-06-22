@@ -1,9 +1,15 @@
 compile: compile_list compile_main
+	mkdir obj
 	g++ -Wall obj/main.o obj/list.o -o main
 	./main
 
+debug: compile_list compile_main
+	mkdir obj
+	g++ -Wall obj/main.o obj/list.o -o main
+	gdb ./main
+
 compile_main: main.cpp
-	g++ -g -c main.cpp -o obj/main.o
+	g++ -c -g main.cpp -o obj/main.o
 
 compile_list: list.cpp
-	g++ -g -c list.cpp -o obj/list.o
+	g++ -c -g list.cpp -o obj/list.o
