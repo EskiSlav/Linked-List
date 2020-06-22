@@ -6,46 +6,49 @@ using namespace std;
 
 int main()
 {
-	Node* Head = new Node;
-	start(Head);
+	Node* head = new Node;
+	start(head);
 	cout << "Choose what you want to do:" << endl;
 	char var;
 	while (true) {
-		cout << "-1 add tail" << endl
-			<< "-2 readfromfile" << endl
-			<< "-3 putElements" << endl
-			<< "-4 writeToFile" << endl
-			<< "-5 show" << endl
-			<< "-6 reverse" << endl
-			<< "-7 sort" << endl
-			<< "-8 maxIndex" << endl
-			<< "-9 exit" << endl << endl;
+		cout << " - 1 add tail" << endl
+			<< " - 2 readfromfile" << endl
+			<< " - 3 putElements" << endl
+			<< " - 4 writeToFile" << endl
+			<< " - 5 show" << endl
+			<< " - 6 reverse" << endl
+			<< " - 7 sort" << endl
+			<< " - 8 maxIndex" << endl
+			<< " - 9 exit" << endl << endl;
 		cin >> var;
+		// Uncomment if you want your screen cleared every time
+		// you choose any option
+		// system("clear");
 		switch (var)
 		{
 		case '1':
-			addTail(Head);
+			addTail(head);
 			break;
 		case '2':
-			readFromFile(Head);
+			readFromFile(head);
 			break;
 		case '3':
-			putElements(Head);
+			putElements(head);
 			break;
 		case '4':
-			writeToFile(Head);
+			writeToFile(head);
 			break;
 		case '5':
-			show(Head);
+			show(head);
 			break;
 		case '6':
-			reverse(Head);
+			reverse(head);
 			break;
 		case '7':
-			sort(Head);
+			sort(head);
 			break;
 		case '8':
-			maxIndex(Head);
+			maxIndex(head);
 			break;
 		case '9':
 			return 0;

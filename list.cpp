@@ -2,11 +2,10 @@
 #include <fstream>
 using namespace std;
 
-void start(Node * Head) {
-	Node* temp = new Node;
-	temp = Head;
+void start(Node *& head) {
+	Node* temp = head;
 	int var;
-	cout << "Enter 1 value: ";
+	cout << "To stop entering numbers just type any non-number sybmol.\nEnter 1 value: ";
 	cin >> temp->x;
 	for (int i = 2; ; i++) {
 		cout << "Enter " << i << " value: ";
@@ -25,25 +24,25 @@ void start(Node * Head) {
 	temp->Next = NULL;
 }
 
-void show(Node* Head) {
+void show(Node* head) {
 	cout << "-----------------------" << endl;
-	for (Node* temp = Head; temp != NULL; temp = temp->Next) {
+	for (Node* temp = head; temp != NULL; temp = temp->Next) {
 		cout << temp->x << ' ';
 	}
 	cout << endl << "-----------------------" << endl;
 	cout << endl;
 }
 
-void addTail(Node * Head) {
-	if (Head == NULL) {
+void addTail(Node * head) {
+	if (head == NULL) {
 		Node * temp = new Node;
 		cout << "Type value: ";
 		cin >> temp->x;
 		temp->Next = NULL;
-		Head = temp;
+		head = temp;
 	}
 	else {
-		Node* temp = Head;
+		Node* temp = head;
 		while (temp->Next != NULL) {
 			temp = temp->Next;
 		}
@@ -55,7 +54,7 @@ void addTail(Node * Head) {
 	}
 }
 
-void putElements(Node* Head) {
+void putElements(Node* head) {
 	cout << "How many elements you want to enter?: ";
 	int num;
 	while (true) {
@@ -65,7 +64,7 @@ void putElements(Node* Head) {
 			cin.ignore(~(unsigned int)0, '\n');
 		}
 		else {
-			Node * temp = Head;
+			Node * temp = head;
 			int k = 1;
 			while (temp->Next != NULL) {
 				temp = temp->Next;
@@ -84,8 +83,8 @@ void putElements(Node* Head) {
 	}
 }
 
-void reverse(Node* Head) {
-	for (Node* temp = Head; temp != NULL; temp = temp->Next) {
+void reverse(Node* head) {
+	for (Node* temp = head; temp != NULL; temp = temp->Next) {
 		for (Node* temp1 = temp; temp1 != NULL; temp1 = temp1->Next) {
 			int c = temp->x;
 			temp->x = temp1->x;
@@ -94,9 +93,9 @@ void reverse(Node* Head) {
 	}
 }
 
-void maxIndex(Node* Head) {
-	int i = 0, index = 0, max = Head->x;
-	for (Node * temp = Head; temp != NULL; temp = temp->Next, i++) {
+void maxIndex(Node* head) {
+	int i = 0, index = 0, max = head->x;
+	for (Node * temp = head; temp != NULL; temp = temp->Next, i++) {
 		if (temp->x > max) {
 			max = temp->x;
 			index = i;
@@ -105,8 +104,8 @@ void maxIndex(Node* Head) {
 	cout << "Max element is /" << max << "\\ with index /" << index << "\\" <<  endl;
 }
 
-void readFromFile(Node* Head) {
-	Node * temp = Head;
+void readFromFile(Node* head) {
+	Node * temp = head;
 	ifstream input("data.dat", ios::binary);
 	int k = 0;
 	while (input.read((char*)&temp->x, sizeof(int))) {
@@ -114,7 +113,7 @@ void readFromFile(Node* Head) {
 		temp = temp->Next;
 		k++;
 	}
-	temp = Head;
+	temp = head;
 	for (int i = 1; i < k; i++) {
 		temp = temp->Next;
 	}
@@ -122,8 +121,8 @@ void readFromFile(Node* Head) {
 	input.close();
 }
 
-void writeToFile(Node* Head) {
-	Node * temp = Head;
+void writeToFile(Node* head) {
+	Node * temp = head;
 	ofstream output("data.dat", ios::binary);
 	while (temp != NULL) {
 		output.write((char*)&temp->x, sizeof(int));
@@ -132,8 +131,8 @@ void writeToFile(Node* Head) {
 	output.close();
 }
 
-void sort(Node* Head) {
-	for (Node* temp = Head; temp != NULL; temp = temp->Next) {
+void sort(Node* head) {
+	for (Node* temp = head; temp != NULL; temp = temp->Next) {
 		for (Node* temp1 = temp; temp1 != NULL; temp1 = temp1->Next) {
 			if (temp->x > temp1->x) {
 				int c = temp->x;

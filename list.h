@@ -8,14 +8,14 @@ struct Node {
 	Node * Next;
 };
 
-void addTail(Node*);
-void putElements(Node*);
-void show(Node*);
-void reverse(Node*);
-void sort(Node*);
-void writeToFile(Node*);
-void readFromFile(Node*);
-void maxIndex(Node*);
-void start(Node *);
+void addTail(Node*); // Function adds element to the end of the file
+void putElements(Node*); // Function adds multiple elements
+void show(Node*);        // Show list elements
+void reverse(Node*);     // reverse list
+void sort(Node*);        // sort list elements
+void writeToFile(Node*); // write data to file in binary form
+void readFromFile(Node*);// read from file list
+void maxIndex(Node*);    // find max element and its index 
+void start(Node *&);     // init list
 
 #endif // __LIST_H__
