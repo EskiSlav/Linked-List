@@ -1,15 +1,16 @@
-compile: compile_list compile_main
-	mkdir obj
+compile: obj/main.o obj/list.o
 	g++ -Wall obj/main.o obj/list.o -o main
 	./main
 
-debug: compile_list compile_main
+debug: obj/main.o obj/list.o
 	mkdir obj
 	g++ -Wall obj/main.o obj/list.o -o main
 	gdb ./main
 
-compile_main: main.cpp
+obj/main.o: main.cpp
+	mkdir -p obj
 	g++ -c -g main.cpp -o obj/main.o
 
-compile_list: list.cpp
+obj/list.o: list.cpp
+	mkdir -p obj
 	g++ -c -g list.cpp -o obj/list.o
