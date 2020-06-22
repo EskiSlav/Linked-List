@@ -1,6 +1,4 @@
-#include "pch.h"
-#include "mylist.h"
-#include <iostream>
+#include "list.h"
 #include <fstream>
 using namespace std;
 

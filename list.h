@@ -1,7 +1,8 @@
 #ifndef __LIST_H__
 #define __LIST_H__
 
-#include "pch.h"
+#include <iostream>
+
 struct Node {
 	int x;
 	Node * Next;
@@ -17,4 +18,4 @@ void readFromFile(Node*);
 void maxIndex(Node*);
 void start(Node *);
 
-#endif __LIST_H__
+#endif // __LIST_H__
